@@ -25,6 +25,9 @@ app.get("/", (req, res) => res.send("Hello World!~하이")); // root directory�
 app.post("/register", (req, res) => {
   // 회원가입 정보들을 client에서 가져오면 데이터베이스에 넣기
   const userNew = new user(req.body); // bodyParser를 활용해서 req.body 활용 가능
+
+  // save 전에 비밀번호 암호화(user.js)
+
   userNew.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).json({ success: true });
