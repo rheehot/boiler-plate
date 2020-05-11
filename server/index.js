@@ -39,7 +39,7 @@ app.post("/api/users/register", (req, res) => {
   }); // mongodb method
 });
 
-app.post("/login", (req, res) => {
+app.post("/api/users/login", (req, res) => {
   // 요청된 이메일을 db에서 찾기
   user.findOne({ email: req.body.email }, (err, user) => {
     if (!user) {
